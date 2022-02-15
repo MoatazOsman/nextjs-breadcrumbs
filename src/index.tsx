@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useRouter } from 'next/router';
 import './styles.css';
 
@@ -45,7 +45,7 @@ const convertBreadcrumb = (
     }
   }
 
-  // decode for utf-8 characters and return ascii. 
+  // decode for utf-8 characters and return ascii.
   return toUpperCase ? decodeURI(transformedTitle).toUpperCase() : decodeURI(transformedTitle);
 };
 
@@ -199,8 +199,8 @@ const Breadcrumbs = ({
       >
         {!omitRootLabel && (
           <li style={inactiveItemStyle} className={inactiveItemClassName}>
-            <Link href="/">
-              <a>
+            {/*<Link href="/">*/}
+              <a href="/">
                 {convertBreadcrumb(
                   rootLabel || 'Home',
                   labelsToUppercase,
@@ -208,7 +208,7 @@ const Breadcrumbs = ({
                   transformLabel
                 )}
               </a>
-            </Link>
+            {/*</Link>*/}
           </li>
         )}
         {breadcrumbs.length >= 1 &&
@@ -234,8 +234,8 @@ const Breadcrumbs = ({
                     : inactiveItemStyle
                 }
               >
-                <Link href={breadcrumb.href}>
-                  <a>
+                {/*<Link href={breadcrumb.href}>*/}
+                  <a href={breadcrumb.href}>
                     {convertBreadcrumb(
                       breadcrumb.breadcrumb,
                       labelsToUppercase,
@@ -243,7 +243,7 @@ const Breadcrumbs = ({
                       transformLabel
                     )}
                   </a>
-                </Link>
+                {/*</Link>*/}
               </li>
             );
           })}
